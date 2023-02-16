@@ -7,7 +7,7 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const basePromptPrefix = `
-I am going to provide you with a blog post I have written, I want you to convert it into a tweet thread, number the tweets and show breaks in between, make sure the whole tweet thread is able to include the important points of my blog post, the tweets need to be concise and include relevant emojis.
+I am going to provide you with a blog post I have written, I want you to convert it into a tweet thread, number each tweet and show breaks in between, make sure the whole tweet thread is able to include the important points of my blog post, the tweets need to be concise and include relevant emojis.
 
 Blog post:
 `;
