@@ -1,21 +1,24 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
     <Html>
       <Head>
-        <meta property="og:title" content="GPT-3 Writer" key="title"/>
-        <meta property="og:description" content="build with buildspace" key="description"/>
         <meta
-          property="og:image"
-          content="https://cdn.buildspace.so/courses/gpt3-writer/project-og.jpg"
+          property="og:title"
+          content="blog post to tweet thread"
+          key="title"
         />
-        <meta name="twitter:card" content="summary_large_image"></meta>
+        <meta
+          property="og:description"
+          content="transform your blog post into a tweet thread"
+          key="description"
+        />
       </Head>
       <body>
         <Main />
         <NextScript />
       </body>
     </Html>
-  )
+  );
 }
