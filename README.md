@@ -18,7 +18,7 @@ This web application uses OpenAI's GPT-3 language model to convert a blog post o
 - text-davinci-003 model.
 - Base prompt created following experimentation using OpenAI playground.
 - Temperature and max tokens optimised following experimentation in playground.
-- Deployed to Railway directly from GitHub.
+- Continuous deployment to Railway directly from GitHub.
 
 ## Future considerations
 
