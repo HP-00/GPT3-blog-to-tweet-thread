@@ -14,16 +14,26 @@ Blog post:
 const generateAction = async (req, res) => {
   console.log(`API: ${basePromptPrefix}${req.body.userInput}`);
 
-  const baseCompletion = await openai.createCompletion({
-    model: "text-davinci-003",
-    prompt: `${basePromptPrefix}${req.body.userInput}\n`,
-    temperature: 0.7,
-    max_tokens: 1000,
-  });
+  if (!process.env.OPENAI_API_KEY) {
+    console.error("Missing OpenAI API Key");
+    return res.status(500).json({ error: "OpenAI request failed" });
+  }
 
-  const basePromptOutput = baseCompletion.data.choices.pop();
+  try {
+    const baseCompletion = await openai.createCompletion({
+      model: "text-davinci-003",
+      prompt: `${basePromptPrefix}${req.body.userInput}\n`,
+      temperature: 0.7,
+      max_tokens: 1000,
+    });
 
-  res.status(200).json({ output: basePromptOutput });
+    const basePromptOutput = baseCompletion.data.choices.pop();
+
+    res.status(200).json({ output: basePromptOutput });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "OpenAI request failed" });
+  }
 };
 
 export default generateAction;
