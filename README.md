@@ -8,7 +8,7 @@ This web application uses OpenAI's GPT-3 language model to convert a blog post o
 
 1. Open https://blog-to-thread.up.railway.app/.
 2. Paste the blog post you want to convert into the prompt box and click generate.
-3. Once your Tweet Thread has been generated, you can copy the individual Tweets and publish them on on your Twitter account.
+3. Once your Tweet Thread has been generated, you can copy the individual Tweets and publish them on your Twitter account.
 
 ## Features and technologies
 
