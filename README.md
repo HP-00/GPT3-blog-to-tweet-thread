@@ -4,6 +4,10 @@
 
 This web application uses OpenAI's GPT-3 language model to convert a blog post of the user's choosing into a numbered Tweet thread. Tweet threads are a common method of increasing engagement, this generator streamlines the process for content creators to increase their reach on Twitter. You can access it here: https://blog-to-thread.up.railway.app/.
 
+## Setup
+
+1. Copy `.env.example` to `.env` and replace `your_openai_api_key_here` with your actual API key.
+
 ## Usage
 
 1. Open https://blog-to-thread.up.railway.app/.
