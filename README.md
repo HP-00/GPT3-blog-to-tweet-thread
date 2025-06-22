@@ -20,7 +20,7 @@ This web application uses OpenAI's GPT-3 language model to convert a blog post o
 - Frontend: React & CSS.
 - Backend serverless function: NextJS.
 - Utilises OpenAI API.
-- text-davinci-003 model.
+- gpt-3.5-turbo-instruct model.
 - Base prompt created following experimentation using OpenAI playground.
 - Temperature and max tokens optimised following experimentation in playground.
 
