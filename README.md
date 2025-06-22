@@ -6,11 +6,10 @@ This web application uses OpenAI's GPT-3 language model to convert a blog post o
 
 ## Setup
 
-1. Copy `.env.example` to `.env` and replace `your_openai_api_key_here` with your actual API key.
-2. Install dependencies with `npm install`.
+1. Copy `.env.example` to `.env` and set the `OPENAI_API_KEY` value to your actual API key.
+2. Install the project dependencies using `npm install`.
 3. Start the development server with `npm run dev`.
 
-This project uses **npm** as its package manager.
 ## Usage
 
 1. Start the development server with `npm run dev`.
