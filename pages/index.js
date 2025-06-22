@@ -60,7 +60,8 @@ const Home = () => {
             onChange={onUserChangedText}
           />
           <div className="prompt-buttons">
-            <a
+            <button
+              type="button"
               className={
                 isGenerating ? "generate-button loading" : "generate-button"
               }
@@ -73,7 +74,7 @@ const Home = () => {
                   <p>Generate</p>
                 )}
               </div>
-            </a>
+            </button>
           </div>
           {errorMessage && (
             <div className="error-message">
