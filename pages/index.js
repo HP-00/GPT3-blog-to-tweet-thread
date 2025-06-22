@@ -3,26 +3,38 @@ import { useState } from "react";
 const Home = () => {
   const [userInput, setUserInput] = useState("");
   const [apiOutput, setApiOutput] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
 
   const callGenerateEndpoint = async () => {
     setIsGenerating(true);
+    setErrorMessage("");
 
-    console.log("Calling OpenAI...");
-    const response = await fetch("/api/generate", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ userInput }),
-    });
+    try {
+      console.log("Calling OpenAI...");
+      const response = await fetch("/api/generate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userInput }),
+      });
 
-    const data = await response.json();
-    const { output } = data;
-    console.log("OpenAI replied...", output.text);
+      if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`);
+      }
 
-    setApiOutput(`${output.text}`);
-    setIsGenerating(false);
+      const data = await response.json();
+      const { output } = data;
+      console.log("OpenAI replied...", output.text);
+
+      setApiOutput(`${output.text}`);
+    } catch (err) {
+      console.error(err);
+      setErrorMessage("Failed to generate tweet thread.");
+    } finally {
+      setIsGenerating(false);
+    }
   };
   const onUserChangedText = (event) => {
     setUserInput(event.target.value);
@@ -63,6 +75,11 @@ const Home = () => {
               </div>
             </a>
           </div>
+          {errorMessage && (
+            <div className="error-message">
+              <p>{errorMessage}</p>
+            </div>
+          )}
           {apiOutput && (
             <div className="output">
               <div className="output-header-container">
