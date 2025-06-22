@@ -12,7 +12,9 @@ I am going to provide you with a blog post I have written, I want you to convert
 Blog post:
 `;
 const generateAction = async (req, res) => {
-  console.log(`API: ${basePromptPrefix}${req.body.userInput}`);
+  if (process.env.NODE_ENV !== "production") {
+    console.log(`API: ${basePromptPrefix}${req.body.userInput}`);
+  }
 
   if (req.body.userInput && req.body.userInput.length > 2000) {
     return res
