@@ -14,6 +14,12 @@ Blog post:
 const generateAction = async (req, res) => {
   console.log(`API: ${basePromptPrefix}${req.body.userInput}`);
 
+  if (req.body.userInput && req.body.userInput.length > 2000) {
+    return res
+      .status(400)
+      .json({ error: "User input exceeds 2000 character limit" });
+  }
+
   if (!process.env.OPENAI_API_KEY) {
     console.error("Missing OpenAI API Key");
     return res.status(500).json({ error: "OpenAI request failed" });
